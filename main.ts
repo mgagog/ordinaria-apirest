@@ -1,10 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 
-import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
-const env = await load();
 
-const MONGO_URL = env.MONGO_URL /*busca en el archivo*/ || Deno.env.get("MONGO_URL"); /*busca en variables de entorno*/
+const MONGO_URL = Deno.env.get("MONGO_URL"); /*busca en variables de entorno*/
 
 if (!MONGO_URL) {
   throw new Error("Please provide a MongoDB connection string");
