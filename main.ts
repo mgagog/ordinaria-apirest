@@ -7,8 +7,7 @@ const env = await load();
 const MONGO_URL = env.MONGO_URL /*busca en el archivo*/ || Deno.env.get("MONGO_URL"); /*busca en variables de entorno*/
 
 if (!MONGO_URL) {
-  console.log("No hay MONGO_URL");
-  Deno.exit(1);
+  throw new Error("Please provide a MongoDB connection string");
 }
 
 try{
